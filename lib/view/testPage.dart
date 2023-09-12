@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutterportfolio/view/generalPage.dart';
-import 'package:flutterportfolio/view/test2Page.dart';
+import 'package:flutterportfolio/view/listViewPage.dart';
 
 import 'package:get/get.dart';
 
@@ -59,17 +59,15 @@ class TestPage extends StatelessWidget {
           color: const Color(0x11000000),
           child: ListView(
             children: [
-              menuBar(const Icon(Icons.hourglass_bottom), '스크린 타임'),
+              menuBar(const Icon(Icons.hourglass_bottom), '버튼 테스트 페이지',
+                  widgetPage: GeneralPage('버튼 상태관리')),
               const SizedBox(height: 20),
-              menuBar(const Icon(Icons.settings_applications_sharp), '일반',
-                  widgetPage: GeneralPage('일반')),
-              menuBar(const Icon(Icons.accessibility), '손쉬운 사용',
-                  widgetPage: GeneralPage('손쉬운 사용')),
-              menuBar(const Icon(Icons.back_hand), '개인정보 보호 및 보안',
-                  widgetPage: GeneralPage('개인정보 보호 및 보안')),
+              menuBar(const Icon(Icons.settings_applications_sharp), '리스트뷰 페이지',
+                  widgetPage: ListViewPage('리스트뷰')),
+              menuBar(const Icon(Icons.accessibility), '손쉬운 사용'),
+              menuBar(const Icon(Icons.back_hand), '개인정보 보호 및 보안'),
               const SizedBox(height: 20),
-              menuBar(const Icon(Icons.key), '암호',
-                  widgetPage: test2Page('실습 페이지')),
+              menuBar(const Icon(Icons.key), '암호'),
               const SizedBox(height: 20),
               menuBar(const Icon(Icons.explore), 'Safari'),
               menuBar(const Icon(Icons.feed), 'News'),
