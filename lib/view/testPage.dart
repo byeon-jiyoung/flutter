@@ -63,7 +63,7 @@ class TestPage extends StatelessWidget {
                   widgetPage: GeneralPage('버튼 상태관리')),
               const SizedBox(height: 20),
               menuBar(const Icon(Icons.settings_applications_sharp), '리스트뷰 페이지',
-                  widgetPage: ListViewPage('리스트뷰')),
+                  widgetPage: ListViewPage('리스트뷰', 1)),
               menuBar(const Icon(Icons.accessibility), '손쉬운 사용'),
               menuBar(const Icon(Icons.back_hand), '개인정보 보호 및 보안'),
               const SizedBox(height: 20),
