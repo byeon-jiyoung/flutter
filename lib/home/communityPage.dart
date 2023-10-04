@@ -11,7 +11,7 @@ class CommunityPage extends StatelessWidget {
         child: Stack(
           children: [
             Container(
-              color: Colors.red,
+              // color: Colors.red,
               child: Column(
                 children: [
                   Container(
@@ -79,9 +79,10 @@ class CommunityPage extends StatelessWidget {
                           Icon(Icons.notifications_outlined),
                         ],
                       )),
+                  Divider(height: 0, thickness: 1),
                   Expanded(
                     child: Container(
-                      color: Colors.amber,
+                      // color: Colors.amber,
                       child: ListView(
                         children: [
                           Icon(Icons.account_circle_outlined),
