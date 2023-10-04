@@ -4,9 +4,8 @@ import 'package:get/get.dart';
 
 class ListViewPage extends StatelessWidget {
   final String title;
-  final int test;
   final TestCtl testCtl = Get.put(TestCtl());
-  ListViewPage(this.title, this.test, {Key? key}) : super(key: key);
+  ListViewPage(this.title, {Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
