@@ -33,50 +33,28 @@ class App extends GetView<NavCtl> {
                     onTap: controller.changeNav,
                     items: const [
                       BottomNavigationBarItem(
-                        icon: Icon(
-                          Icons.home,
-                        ),
-                        activeIcon: Icon(
-                          Icons.home_outlined,
-                        ),
+                        icon: Icon(Icons.home_outlined),
+                        activeIcon: Icon(Icons.home),
                         label: '홈',
                       ),
                       BottomNavigationBarItem(
-                        icon: Icon(
-                          Icons.description,
-                        ),
-                        activeIcon: Icon(
-                          Icons.description_outlined,
-                        ),
+                        icon: Icon(Icons.description_outlined),
+                        activeIcon: Icon(Icons.description),
                         label: '동네생활',
                       ),
                       BottomNavigationBarItem(
-                        icon: Icon(
-                          Icons.description,
-                        ),
-                        activeIcon: Icon(
-                          Icons.description_outlined,
-                        ),
-                        label: '홈2',
+                        icon: Icon(Icons.location_on_outlined),
+                        activeIcon: Icon(Icons.location_on),
+                        label: '내 근처',
                       ),
                       BottomNavigationBarItem(
-                        icon: Icon(
-                          Icons.description,
-                        ),
-                        activeIcon: Icon(
-                          Icons.description_outlined,
-                        ),
-                        label: '홈2',
-                      ),
+                          icon: Icon(Icons.forum_outlined),
+                          activeIcon: Icon(Icons.forum),
+                          label: '채팅'),
                       BottomNavigationBarItem(
-                        icon: Icon(
-                          Icons.description,
-                        ),
-                        activeIcon: Icon(
-                          Icons.description_outlined,
-                        ),
-                        label: '홈2',
-                      ),
+                          icon: Icon(Icons.person_outline),
+                          activeIcon: Icon(Icons.person),
+                          label: '나의 당근'),
                     ]),
               ),
             ],
