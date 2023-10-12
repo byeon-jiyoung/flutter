@@ -58,19 +58,54 @@ class CommunityPage extends StatelessWidget {
                       scrollDirection: Axis.horizontal,
                       padding: const EdgeInsets.symmetric(vertical: 5),
                       shrinkWrap: true,
+                      /*
+                      for (int idx = 0; i < CommunityCtl.titleList.length; i++){
+                        
+                       }
+                       이거랑 같다고 보면 됩니다.
+                       따라서 idx 0번과 1번에만 아이콘이 들어가야하니 
+                       for (int idx = 0; i < CommunityCtl.titleList.length; i++){
+                          if (idx < 2){
+                           아이콘 리스트[idx]
+                         }
+                         글자 리스트[idx]
+                       }
+                       형식으로 만들어주면되는거지요
+                      */
+
+                      // itemCount: 3, // 테스트용 코드
                       itemCount: CommunityCtl.titleList.length,
                       itemBuilder: (BuildContext ctx, int idx) {
-                        return Container(
-                          padding: const EdgeInsets.symmetric(horizontal: 10),
-                          margin: const EdgeInsets.only(right: 10),
-                          decoration: BoxDecoration(
-                              border: Border.all(color: Colors.grey),
-                              borderRadius: BorderRadius.circular(40)),
-                          child: Row(
-                            children: [
-                              //Icon(CommunityCtl.titleIconList[idx]),
-                              Text(CommunityCtl.titleList[idx])
-                            ],
+                        // return CommunityCtl.testWidget[idx]; // 테스트용 코드
+                        return InkWell(
+                          onTap: () {
+                            print('이것도 결국 버튼이니 요거 하나 넣어줍시다');
+                          },
+                          child: Container(
+                            padding: const EdgeInsets.symmetric(horizontal: 10),
+                            margin: const EdgeInsets.symmetric(horizontal: 5),
+                            // margin: const EdgeInsets.only(right: 10), // 오른쪽만 주면 터치영역이 어색해져요
+                            // margin: const EdgeInsets.only(left: 5, right:5), // 이렇게 줘도됩니다.
+                            decoration: BoxDecoration(
+                                border: Border.all(color: Colors.grey),
+                                borderRadius: BorderRadius.circular(40)),
+                            child: Row(
+                              children: [
+                                /*
+                                  만약 아래와 같은 형식이 싫다고 한다면
+                                  위에 만들어둔 테스트용 코드 주석 해제해서 한번 돌려보세용
+                                  이런 방법도 있답니다 :) 
+                                */
+                                if (idx < 2) // idx 리스트가 2보다 작을때 (0번째 1번째)
+                                  Icon(
+                                    CommunityCtl
+                                        .titleIconList[idx], // 0번과 1번 리스트만 들어감
+                                    size: 15,
+                                    color: idx == 0 ? Colors.black : Colors.red,
+                                  ),
+                                Text(CommunityCtl.titleList[idx])
+                              ],
+                            ),
                           ),
                         );
                       },

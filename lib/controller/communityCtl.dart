@@ -27,6 +27,26 @@ class CommunityCtl extends GetxController {
     Icons.local_fire_department
   ];
 
+  /*
+  view창에서 사용할 위젯을 리스트형식으로 만들어서 가져다 쓸 수도 있습니다.
+  view 페이지로 옮겨서 사용해도 무관합니다
+  */
+  static List<Widget> testWidget = [
+    Row(
+      children: [
+        Icon(CommunityCtl.titleIconList[0], size: 15, color: Colors.black),
+        Text(CommunityCtl.titleList[0])
+      ],
+    ),
+    Row(
+      children: [
+        Icon(CommunityCtl.titleIconList[1], size: 15, color: Colors.black),
+        Text(CommunityCtl.titleList[1])
+      ],
+    ),
+    Text(titleList[2]),
+  ];
+
   List<String> subtitleString = ['순서가', '맞도록', '내용을', '넣어', '보자'];
 
   void createModel(String title, String subtitle) {
@@ -54,7 +74,5 @@ class CommunityCtl extends GetxController {
   }
 }
 
-
-
-// 이런 느낌으로 제작 뒤 위젯에서 
+// 이런 느낌으로 제작 뒤 위젯에서
 // model[index].title, model[index].subtitle 이런식으로 가져옴
