@@ -47,8 +47,6 @@ class CommunityCtl extends GetxController {
     Text(titleList[2]),
   ];
 
-  List<String> subtitleString = ['순서가', '맞도록', '내용을', '넣어', '보자'];
-
   void createModel(String title, String subtitle) {
     communityModel tmpModel = communityModel();
     //tmpModel.detail = subtitle;

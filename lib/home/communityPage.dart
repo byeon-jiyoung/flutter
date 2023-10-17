@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:flutterportfolio/controller/boradCtl.dart';
 import 'package:flutterportfolio/controller/communityCtl.dart';
 import 'package:flutterportfolio/controller/testCtl.dart';
 import 'package:flutterportfolio/model/communityModel.dart';
@@ -79,7 +80,7 @@ class CommunityPage extends StatelessWidget {
                         // return CommunityCtl.testWidget[idx]; // 테스트용 코드
                         return InkWell(
                           onTap: () {
-                            print('이것도 결국 버튼이니 요거 하나 넣어줍시다');
+                            print(CommunityCtl.titleList[idx]);
                           },
                           child: Container(
                             padding: const EdgeInsets.symmetric(horizontal: 10),
@@ -117,7 +118,7 @@ class CommunityPage extends StatelessWidget {
                       padding: const EdgeInsets.symmetric(horizontal: 15),
                       child: ListView.builder(
                         padding: const EdgeInsets.symmetric(vertical: 10),
-                        itemCount: CommunityCtl.titleList.length,
+                        itemCount: boardCtl.boardList.length,
                         itemBuilder: (BuildContext ctx, int idx) {
                           return Container(
                             padding: const EdgeInsets.symmetric(vertical: 5),
@@ -133,20 +134,21 @@ class CommunityPage extends StatelessWidget {
                                             borderRadius:
                                                 BorderRadius.circular(5),
                                             color: Colors.black12),
-                                        child: const Text('일상'),
+                                        child: Text(boardCtl.boardList[idx]
+                                            ['division']),
                                       ),
                                     ],
                                   ),
                                 ),
                                 Container(
                                   padding: const EdgeInsets.only(top: 5),
-                                  child: const Row(
+                                  child: Row(
                                     children: [
                                       Flexible(
                                         child: Text(
-                                          '방촌시장 미니붕어빵 풀빵',
+                                          boardCtl.boardList[idx]['title'],
                                           overflow: TextOverflow.ellipsis,
-                                          style: TextStyle(
+                                          style: const TextStyle(
                                               fontWeight: FontWeight.bold),
                                         ),
                                       )
@@ -154,11 +156,11 @@ class CommunityPage extends StatelessWidget {
                                   ),
                                 ),
                                 Container(
-                                  child: const Row(
+                                  child: Row(
                                     children: [
                                       Flexible(
                                         child: Text(
-                                          '장사를 안하네요ㅠㅠㅠ 추워져서 할때가 된거 같은데 따흑 아주머니 아저씨 돌아오셔요',
+                                          boardCtl.boardList[idx]['contents'],
                                           overflow: TextOverflow.ellipsis,
                                         ),
                                       )
@@ -171,38 +173,68 @@ class CommunityPage extends StatelessWidget {
                                   child: Row(
                                     children: [
                                       Container(
-                                        child: const Row(
+                                        child: Row(
                                           children: [
                                             Text(
-                                              '방촌동',
-                                              style: TextStyle(fontSize: 12),
+                                              boardCtl.boardList[idx]['area'],
+                                              style:
+                                                  const TextStyle(fontSize: 12),
                                             ),
-                                            Text('・'),
+                                            const Text('・'),
                                             Text(
-                                              '3일전',
-                                              style: TextStyle(fontSize: 12),
+                                              boardCtl.boardList[idx]['date'],
+                                              style:
+                                                  const TextStyle(fontSize: 12),
                                             ),
-                                            Text('・'),
+                                            const Text('・'),
                                             Text(
-                                              '조회24',
-                                              style: TextStyle(fontSize: 12),
+                                              '조회' +
+                                                  boardCtl.boardList[idx]
+                                                      ['readCnt'],
+                                              style:
+                                                  const TextStyle(fontSize: 12),
                                             )
                                           ],
                                         ),
                                       ),
                                       const Spacer(),
                                       Container(
-                                        child: const Row(
+                                        child: Row(
                                           children: [
-                                            Icon(
-                                              Icons.chat_bubble_outline,
-                                              color: Colors.black45,
-                                              size: 20,
-                                            ),
-                                            Text(
-                                              '1',
-                                              style: TextStyle(fontSize: 12),
-                                            ),
+                                            if (boardCtl.boardList[idx]
+                                                    ['assentCnt'] !=
+                                                '0')
+                                              const Icon(
+                                                Icons.thumb_up_outlined,
+                                                color: Colors.black45,
+                                                size: 20,
+                                              ),
+                                            if (boardCtl.boardList[idx]
+                                                    ['assentCnt'] !=
+                                                '0')
+                                              Text(
+                                                boardCtl.boardList[idx]
+                                                    ['assentCnt'],
+                                                style: const TextStyle(
+                                                    fontSize: 12),
+                                              ),
+                                            if (boardCtl.boardList[idx]
+                                                    ['commentCnt'] !=
+                                                '0')
+                                              const Icon(
+                                                Icons.chat_bubble_outline,
+                                                color: Colors.black45,
+                                                size: 20,
+                                              ),
+                                            if (boardCtl.boardList[idx]
+                                                    ['commentCnt'] !=
+                                                '0')
+                                              Text(
+                                                boardCtl.boardList[idx]
+                                                    ['commentCnt'],
+                                                style: const TextStyle(
+                                                    fontSize: 12),
+                                              ),
                                           ],
                                         ),
                                       )
