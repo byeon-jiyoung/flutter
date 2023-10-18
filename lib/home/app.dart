@@ -20,7 +20,7 @@ class App extends GetView<NavCtl> {
                   index: controller.navIndex.value,
                   children: [
                     Container(),
-                    CommunityPage(),
+                    const CommunityPage(),
                     Container(),
                     Container(),
                     Container(),

@@ -1,13 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
 import 'package:flutterportfolio/controller/boradCtl.dart';
 import 'package:flutterportfolio/controller/communityCtl.dart';
-import 'package:flutterportfolio/controller/testCtl.dart';
-import 'package:flutterportfolio/model/communityModel.dart';
-import 'package:get/get.dart';
+import 'package:flutterportfolio/home/widget/communityWidget.dart';
 
 class CommunityPage extends StatelessWidget {
-  CommunityPage({Key? key}) : super(key: key);
+  const CommunityPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -15,32 +12,28 @@ class CommunityPage extends StatelessWidget {
       body: SafeArea(
         child: Stack(
           children: [
-            Container(
-              //color: Colors.red,
+            SizedBox(
+              width: double.infinity,
               child: Column(
                 children: [
                   Container(
                     padding: const EdgeInsets.only(left: 20, right: 20),
                     height: 50,
-                    color: Colors.white,
-                    child: Row(
+                    child: const Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Container(
-                          child: const Row(
-                            children: [
-                              Text(
-                                '입석동',
-                                style: TextStyle(fontWeight: FontWeight.bold),
-                              ),
-                              Icon(Icons.expand_more),
-                            ],
-                          ),
+                        Row(
+                          children: [
+                            Text(
+                              '입석동',
+                              style: TextStyle(fontWeight: FontWeight.bold),
+                            ),
+                            Icon(Icons.expand_more),
+                          ],
                         ),
-                        // 간격벌리기
-                        Spacer(),
-                        Container(
+                        SizedBox(
                           width: 100,
-                          child: const Row(
+                          child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
                               Icon(Icons.account_circle_outlined),
@@ -115,136 +108,17 @@ class CommunityPage extends StatelessWidget {
                   const Divider(height: 0, thickness: 1),
                   Expanded(
                     child: Container(
-                      padding: const EdgeInsets.symmetric(horizontal: 15),
-                      child: ListView.builder(
-                        padding: const EdgeInsets.symmetric(vertical: 10),
-                        itemCount: boardCtl.boardList.length,
-                        itemBuilder: (BuildContext ctx, int idx) {
-                          return Container(
-                            padding: const EdgeInsets.symmetric(vertical: 5),
-                            child: Column(
-                              children: [
-                                Container(
-                                  child: Row(
-                                    children: [
-                                      Container(
-                                        padding: const EdgeInsets.symmetric(
-                                            vertical: 2, horizontal: 10),
-                                        decoration: BoxDecoration(
-                                            borderRadius:
-                                                BorderRadius.circular(5),
-                                            color: Colors.black12),
-                                        child: Text(boardCtl.boardList[idx]
-                                            ['division']),
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                                Container(
-                                  padding: const EdgeInsets.only(top: 5),
-                                  child: Row(
-                                    children: [
-                                      Flexible(
-                                        child: Text(
-                                          boardCtl.boardList[idx]['title'],
-                                          overflow: TextOverflow.ellipsis,
-                                          style: const TextStyle(
-                                              fontWeight: FontWeight.bold),
-                                        ),
-                                      )
-                                    ],
-                                  ),
-                                ),
-                                Container(
-                                  child: Row(
-                                    children: [
-                                      Flexible(
-                                        child: Text(
-                                          boardCtl.boardList[idx]['contents'],
-                                          overflow: TextOverflow.ellipsis,
-                                        ),
-                                      )
-                                    ],
-                                  ),
-                                ),
-                                Container(
-                                  padding:
-                                      const EdgeInsets.symmetric(vertical: 5),
-                                  child: Row(
-                                    children: [
-                                      Container(
-                                        child: Row(
-                                          children: [
-                                            Text(
-                                              boardCtl.boardList[idx]['area'],
-                                              style:
-                                                  const TextStyle(fontSize: 12),
-                                            ),
-                                            const Text('・'),
-                                            Text(
-                                              boardCtl.boardList[idx]['date'],
-                                              style:
-                                                  const TextStyle(fontSize: 12),
-                                            ),
-                                            const Text('・'),
-                                            Text(
-                                              '조회' +
-                                                  boardCtl.boardList[idx]
-                                                      ['readCnt'],
-                                              style:
-                                                  const TextStyle(fontSize: 12),
-                                            )
-                                          ],
-                                        ),
-                                      ),
-                                      const Spacer(),
-                                      Container(
-                                        child: Row(
-                                          children: [
-                                            if (boardCtl.boardList[idx]
-                                                    ['assentCnt'] !=
-                                                '0')
-                                              const Icon(
-                                                Icons.thumb_up_outlined,
-                                                color: Colors.black45,
-                                                size: 20,
-                                              ),
-                                            if (boardCtl.boardList[idx]
-                                                    ['assentCnt'] !=
-                                                '0')
-                                              Text(
-                                                boardCtl.boardList[idx]
-                                                    ['assentCnt'],
-                                                style: const TextStyle(
-                                                    fontSize: 12),
-                                              ),
-                                            if (boardCtl.boardList[idx]
-                                                    ['commentCnt'] !=
-                                                '0')
-                                              const Icon(
-                                                Icons.chat_bubble_outline,
-                                                color: Colors.black45,
-                                                size: 20,
-                                              ),
-                                            if (boardCtl.boardList[idx]
-                                                    ['commentCnt'] !=
-                                                '0')
-                                              Text(
-                                                boardCtl.boardList[idx]
-                                                    ['commentCnt'],
-                                                style: const TextStyle(
-                                                    fontSize: 12),
-                                              ),
-                                          ],
-                                        ),
-                                      )
-                                    ],
-                                  ),
-                                ),
-                                const Divider(height: 0, thickness: 1)
-                              ],
-                            ),
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 15, vertical: 10),
+                      child: ListView.separated(
+                        itemCount: BoardCtl.boardList.length,
+                        itemBuilder: (context, index) {
+                          return CommunityWidget(
+                            idx: index,
                           );
+                        },
+                        separatorBuilder: (_, index) {
+                          return const Divider(height: 0, thickness: 1);
                         },
                       ),
                     ),

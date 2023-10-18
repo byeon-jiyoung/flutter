@@ -23,6 +23,7 @@ class TestCtl extends GetxController {
 
   RxInt indexCount = 0.obs;
 
+  @override
   void onInit() {
     reLoad();
     super.onInit;

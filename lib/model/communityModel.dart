@@ -1,8 +1,8 @@
 import 'package:flutter/widgets.dart';
 
-class communityModel {
+class CommunityModel {
   String? title;
   IconData? icon;
 
-  communityModel({this.title, this.icon});
+  CommunityModel({this.title, this.icon});
 }

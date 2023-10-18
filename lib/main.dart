@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutterportfolio/controller/navCtl.dart';
 import 'package:flutterportfolio/home/app.dart';
-import 'package:flutterportfolio/view/testPage.dart';
 import 'package:get/get.dart';
 
 void main() {

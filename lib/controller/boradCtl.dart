@@ -1,7 +1,7 @@
 import 'package:get/get.dart';
 
-class boardCtl extends GetxController {
-  static boardCtl get to => Get.find();
+class BoardCtl extends GetxController {
+  static BoardCtl get to => Get.find();
 
   static Map map1 = {
     'division': '일상',

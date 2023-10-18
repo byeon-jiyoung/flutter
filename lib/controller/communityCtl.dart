@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutterportfolio/model/communityModel.dart';
 import 'package:get/get.dart';
 
 class CommunityCtl extends GetxController {
   static CommunityCtl get to => Get.find();
 
-  static List<communityModel> modelList = [];
+  static List<CommunityModel> modelList = [];
   static List<String> titleList = [
     '주제',
     '인기글',
@@ -48,7 +47,7 @@ class CommunityCtl extends GetxController {
   ];
 
   void createModel(String title, String subtitle) {
-    communityModel tmpModel = communityModel();
+    CommunityModel tmpModel = CommunityModel();
     //tmpModel.detail = subtitle;
     tmpModel.title = title;
 
@@ -56,7 +55,7 @@ class CommunityCtl extends GetxController {
   }
 
   void createTitle(String title, IconData icon) {
-    communityModel tmpTitle = communityModel();
+    CommunityModel tmpTitle = CommunityModel();
     tmpTitle.title = title;
     tmpTitle.icon = icon;
 
